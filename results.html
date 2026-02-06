@@ -8,19 +8,33 @@
   <script src="js/results.js" defer></script>
 </head>
 <body>
-  <img src="images/logo.png" alt="Board Games">
+
+  <img src="images/logo.png" alt="Video Games Logo">
   <h1>Your Game Recommendations</h1>
 
-  <div id="summary"></div>
+  <div id="summary">
+    <p>Loading your preferences...</p>
+  </div>
 
-  <div id="recommendations-container">
-    <div id="summary"></div>
-    <div id="board-games"></div>
-    <div id="card-games"></div>
+  <div class="games-grid" id="video-games">
+    <p>Fetching games that match your preferences...</p>
+  </div>
+
+  <div style="text-align: center; margin: 20px 0;">
+    <button id="start-over-btn" class="start-over">Start Over</button>
+    <a href="favorites.html" class="start-over" style="margin-left:10px;">View Favorites</a>
   </div>
 
   <footer>
-    <p>© 2026 Board/Card Games Survey. Brayden Wayman. All rights reserved.</p>
+    <p>© 2026 Video Game Survey · Brayden Wayman</p>
   </footer>
+
+  <script>
+    document.getElementById("start-over-btn").addEventListener("click", () => {
+      localStorage.removeItem("preferences"); // Only remove preferences
+      window.location.href = "index.html";
+    });
+  </script>
+
 </body>
 </html>
